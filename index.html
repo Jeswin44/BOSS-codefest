@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Campus Connect</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="screen start-screen is-active" id="startScreen" aria-labelledby="gameTitle">
+        <div class="brand-panel">
+          <p class="eyebrow">BOSS Codefest MVP</p>
+          <h1 id="gameTitle">Campus Connect</h1>
+          <p class="intro-copy">
+            A connected campus puzzle about resources, constraints, and clear routes to support.
+            Build the network that helps every student need reach a useful resource.
+          </p>
+          <div class="hero-board" aria-hidden="true">
+            <span class="node resource">R</span>
+            <span class="pipe pipe-h"></span>
+            <span class="pipe pipe-corner"></span>
+            <span class="node need">N</span>
+            <span class="pipe pipe-v"></span>
+            <span class="block"></span>
+            <span class="pipe pipe-cross"></span>
+            <span class="node need small">N</span>
+          </div>
+        </div>
+
+        <div class="level-panel" aria-label="Choose a level">
+          <div class="panel-header">
+            <h2>Choose Level</h2>
+            <p>Eight puzzles with rising difficulty for practice or a polished demo.</p>
+          </div>
+          <div class="level-list" id="levelList"></div>
+          <button class="primary-action" id="startButton" type="button">Start Level 1</button>
+        </div>
+      </section>
+
+      <section class="screen game-screen" id="gameScreen" aria-labelledby="levelTitle">
+        <header class="top-bar">
+          <button class="icon-button" id="homeButton" type="button" aria-label="Back to levels" title="Back to levels">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div>
+            <p class="eyebrow" id="levelKicker">Level 1</p>
+            <h2 id="levelTitle">First Link</h2>
+          </div>
+          <button class="icon-button" id="resetButton" type="button" aria-label="Reset puzzle" title="Reset puzzle">
+            <span aria-hidden="true">↻</span>
+          </button>
+        </header>
+
+        <section class="status-strip" aria-label="Game stats">
+          <div>
+            <span>Moves</span>
+            <strong id="moveCount">0</strong>
+          </div>
+          <div>
+            <span>Time</span>
+            <strong id="timer">0:00</strong>
+          </div>
+          <div>
+            <span>Goal</span>
+            <strong id="goalCount">0/0</strong>
+          </div>
+        </section>
+
+        <p class="theme-line" id="themeLine"></p>
+
+        <div class="play-layout">
+          <section class="board-wrap" aria-label="Puzzle board">
+            <div class="board" id="board"></div>
+          </section>
+
+          <aside class="toolbox" aria-label="Tile inventory">
+            <div class="toolbox-header">
+            <h3>Tile Kit</h3>
+              <p>Limited kit. Clean route. Every choice matters.</p>
+            </div>
+            <div class="inventory" id="inventory"></div>
+            <div class="legend">
+              <div><span class="legend-chip resource-chip"></span> Resource</div>
+              <div><span class="legend-chip need-chip"></span> Need</div>
+              <div><span class="legend-chip block-chip"></span> Blocker</div>
+            </div>
+            <p class="hint" id="hintText">Start by connecting the resource to every need.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="modal" id="winModal" aria-labelledby="winTitle" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true">
+          <p class="eyebrow">Puzzle Complete</p>
+          <h2 id="winTitle">Campus Connected</h2>
+          <div class="stars" id="stars" aria-label="Star rating"></div>
+          <p class="score-line" id="scoreLine"></p>
+          <p class="impact-line" id="impactLine"></p>
+          <div class="modal-actions">
+            <button class="secondary-action" id="replayButton" type="button">Replay</button>
+            <button class="primary-action" id="nextButton" type="button">Next Level</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
